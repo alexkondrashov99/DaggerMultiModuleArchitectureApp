@@ -5,8 +5,8 @@ sealed class DynamicFeatureModule(
     val entryPoint: String
 ) {
 
-//    object Overdraft : DynamicFeatureModule(
-//        name = "overdraft",
-//        entryPoint = "com.oxygenbank.overdraft.OverdraftActivity"
-//    )
+    object Feature1 : DynamicFeatureModule(
+        name = "feature1",
+        entryPoint = "com.testarchitecture.dynamicfeature1.Feature1Activity"
+    )
 }

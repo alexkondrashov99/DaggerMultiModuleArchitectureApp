@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DynamicFeatureApp</string>
+    <string name="title_dynamicfeature1">DynamicFeature1</string>
 </resources>
