@@ -21,7 +21,7 @@
         android:id="@+id/tv_shared_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Feature1  Activity"
+        android:text=""
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

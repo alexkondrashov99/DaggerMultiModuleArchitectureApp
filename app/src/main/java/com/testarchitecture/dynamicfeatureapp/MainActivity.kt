@@ -17,5 +17,12 @@ class MainActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
+
+        findViewById<Button>(R.id.bt_feature_2).setOnClickListener {
+            val intent = Intent().apply {
+                setClassName(this@MainActivity, DynamicFeatureModule.Feature2.entryPoint)
+            }
+            startActivity(intent)
+        }
     }
 }
