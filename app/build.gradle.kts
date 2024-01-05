@@ -17,8 +17,17 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+
     buildTypes {
-        release {
+        getByName("debug") {
+
+        }
+
+        create("beta") {
+
+        }
+
+        getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -26,6 +35,7 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -34,6 +44,16 @@ android {
         jvmTarget = "1.8"
     }
     dynamicFeatures += setOf(":dynamicfeature1", ":dynamicfeature2")
+    flavorDimensions += listOf("platform")
+
+    productFlavors {
+        create("google") {
+            dimension = "platform"
+        }
+        create("huawei") {
+            dimension = "platform"
+        }
+    }
 }
 
 dependencies {

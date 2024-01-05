@@ -20,12 +20,29 @@ android {
     }
 
     buildTypes {
-        release {
+        getByName("debug") {
+
+        }
+
+        create("beta") {
+
+        }
+
+        getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+    }
+    flavorDimensions += listOf("platform")
+    productFlavors {
+        create("google") {
+            dimension = "platform"
+        }
+        create("huawei") {
+            dimension = "platform"
         }
     }
 }
