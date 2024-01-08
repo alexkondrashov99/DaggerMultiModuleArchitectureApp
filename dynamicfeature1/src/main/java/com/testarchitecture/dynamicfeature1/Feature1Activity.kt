@@ -11,7 +11,7 @@ class Feature1Activity : AppCompatActivity() {
         setContentView(R.layout.activity_feature1)
 
         findViewById<TextView>(R.id.tv_shared_data).apply {
-            setText(SharedDataObject.someSharedData1)
+            setText(Feature1Activity::class.java)
         }
     }
 }
