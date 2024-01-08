@@ -3,11 +3,18 @@ package com.testarchitecture.dynamicfeatureapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import com.testarchitecture.dynamicfeatureapp.dynamicfeature.DynamicFeatureModule
 import dagger.android.support.DaggerAppCompatActivity
+import javax.inject.Inject
 
 class MainActivity : DaggerAppCompatActivity() {
+
+
+    @Inject
+    lateinit var dataProvider: SomeDataProvider
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -25,5 +32,7 @@ class MainActivity : DaggerAppCompatActivity() {
             }
             startActivity(intent)
         }
+
+        Log.d("ALESHA", "dataProvider ${dataProvider} ${dataProvider.provideToken()}")
     }
 }

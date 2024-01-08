@@ -5,11 +5,16 @@ import android.app.Service
 import android.content.Context
 import android.content.ContextWrapper
 import android.util.Log
+import com.testarchitecture.dynamicfeatureapp.di.AppComponent
 import com.testarchitecture.dynamicfeatureapp.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
 
-class AppApplication : DaggerApplication() {
+class AppApplication : DaggerApplication(), AppComponentProvider {
+
+    lateinit var appComponent: AppComponent
+
+    override fun provideAppComponent() = appComponent
 
     override fun onCreate() {
         super.onCreate()
@@ -21,6 +26,7 @@ class AppApplication : DaggerApplication() {
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
         val build = DaggerAppComponent.builder().application(this).build()
+        appComponent = build
         build.inject(this)
         return build
     }
@@ -45,3 +51,11 @@ class AppApplication : DaggerApplication() {
         }
     }
 }
+
+
+interface AppComponentProvider {
+    fun provideAppComponent(): AppComponent
+}
+
+fun Activity.appComponent() = (applicationContext as? AppComponentProvider)?.provideAppComponent()
+    ?: throw IllegalStateException("CoreComponentProvider not implemented: $applicationContext")
