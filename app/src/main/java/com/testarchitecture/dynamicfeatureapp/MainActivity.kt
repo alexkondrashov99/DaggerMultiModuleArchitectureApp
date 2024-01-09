@@ -5,11 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import com.testarchitecture.dynamicfeatureapp.di.DaggerAppComponent
 import com.testarchitecture.dynamicfeatureapp.dynamicfeature.DynamicFeatureModule
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
-class MainActivity : DaggerAppCompatActivity() {
+class MainActivity : DaggerAndroidActivity() {
 
 
     @Inject
@@ -34,5 +35,9 @@ class MainActivity : DaggerAppCompatActivity() {
         }
 
         Log.d("ALESHA", "dataProvider ${dataProvider} ${dataProvider.provideToken()}")
+    }
+
+    override fun onInject() {
+        appComponent().inject(this@MainActivity)
     }
 }

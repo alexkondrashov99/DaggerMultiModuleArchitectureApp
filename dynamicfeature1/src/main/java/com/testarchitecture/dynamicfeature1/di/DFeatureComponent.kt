@@ -10,8 +10,7 @@ import dagger.android.support.AndroidSupportInjectionModule
 @ActivityScope
 @Component(
     dependencies = [AppComponent::class],
-    //modules = [DFeatureModule::class, Feature1ActivityBuildersModule::class])
-    modules = [AndroidSupportInjectionModule::class, DFeatureModule::class, Feature1ActivityBuildersModule::class, AppModule::class])
+    modules = [AndroidSupportInjectionModule::class, DFeatureModule::class, AppModule::class])
 interface DFeatureComponent {
 
     @Component.Factory

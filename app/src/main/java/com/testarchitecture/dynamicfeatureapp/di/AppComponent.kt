@@ -2,6 +2,7 @@ package com.testarchitecture.dynamicfeatureapp.di
 
 import android.app.Application
 import com.testarchitecture.dynamicfeatureapp.AppApplication
+import com.testarchitecture.dynamicfeatureapp.MainActivity
 import com.testarchitecture.dynamicfeatureapp.SomeDataProvider
 import dagger.BindsInstance
 import dagger.Component
@@ -12,7 +13,6 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [
     AndroidSupportInjectionModule::class,
-    ActivityBuildersModule::class,
     AppModule::class
 ])
 interface AppComponent : AndroidInjector<AppApplication> {
@@ -24,6 +24,7 @@ interface AppComponent : AndroidInjector<AppApplication> {
         fun build(): AppComponent
     }
 
+    fun inject(activity: MainActivity)
     //fun someDataProvider(): SomeDataProvider
 
 }

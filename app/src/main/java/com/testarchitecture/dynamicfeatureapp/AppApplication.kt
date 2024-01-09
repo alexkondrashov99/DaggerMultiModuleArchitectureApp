@@ -1,6 +1,7 @@
 package com.testarchitecture.dynamicfeatureapp
 
 import android.app.Activity
+import android.app.Application
 import android.app.Service
 import android.content.Context
 import android.content.ContextWrapper
@@ -10,26 +11,25 @@ import com.testarchitecture.dynamicfeatureapp.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
 
-class AppApplication : DaggerApplication(), AppComponentProvider {
+class AppApplication : Application(), AppComponentProvider {
 
     lateinit var appComponent: AppComponent
 
     override fun provideAppComponent() = appComponent
 
     override fun onCreate() {
+
         super.onCreate()
         Log.d(TAG, "onCreate() called")
 
-        this.applicationInjector()
+
+        DaggerAppComponent.builder().application(this).build().also {
+            appComponent = it
+        }.inject(this)
+
         instance = this
     }
 
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        val build = DaggerAppComponent.builder().application(this).build()
-        appComponent = build
-        build.inject(this)
-        return build
-    }
 
     companion object {
 
