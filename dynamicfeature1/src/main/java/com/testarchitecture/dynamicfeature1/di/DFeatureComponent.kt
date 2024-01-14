@@ -1,23 +1,28 @@
 package com.testarchitecture.dynamicfeature1.di
 
+import android.app.Application
 import com.testarchitecture.dynamicfeature1.Feature1Activity
+import com.testarchitecture.dynamicfeature1.data.interfaces.DFeature1Singletone
+import com.testarchitecture.dynamicfeatureapp.SomeDataProvider
 import com.testarchitecture.dynamicfeatureapp.di.ActivityScope
 import com.testarchitecture.dynamicfeatureapp.di.AppComponent
 import com.testarchitecture.dynamicfeatureapp.di.AppModule
+import dagger.BindsInstance
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
-
-@ActivityScope
+import javax.inject.Singleton
+@DFeatureScope
 @Component(
     dependencies = [AppComponent::class],
-    modules = [AndroidSupportInjectionModule::class, DFeatureModule::class, AppModule::class])
+    modules = [AndroidSupportInjectionModule::class, DFeatureModule::class])
 interface DFeatureComponent {
 
     @Component.Factory
     interface Factory {
-        // Takes an instance of AppComponent when creating
-        // an instance of LoginComponent
-        fun create(appComponent: AppComponent): DFeatureComponent
+
+        fun create(appComponent: AppComponent,
+                   dFeatureModule: DFeatureModule,
+                   @BindsInstance application: Application): DFeatureComponent
     }
 
     fun inject(activity: Feature1Activity)

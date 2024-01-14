@@ -8,6 +8,7 @@ import javax.inject.Singleton
 
 @Module
 class AppModule {
+    @Singleton
     @Provides
     fun provideDataProvider(): SomeDataProvider = DataProviderImpl()
 }

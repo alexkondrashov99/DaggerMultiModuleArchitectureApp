@@ -25,6 +25,7 @@ interface AppComponent : AndroidInjector<AppApplication> {
     }
 
     fun inject(activity: MainActivity)
-    //fun someDataProvider(): SomeDataProvider
+
+    fun someDataProvider(): SomeDataProvider
 
 }
