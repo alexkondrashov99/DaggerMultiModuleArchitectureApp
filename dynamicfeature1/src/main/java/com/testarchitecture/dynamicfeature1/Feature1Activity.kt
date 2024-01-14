@@ -1,5 +1,6 @@
 package com.testarchitecture.dynamicfeature1
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
@@ -37,21 +38,32 @@ class Feature1Activity : DaggerAndroidActivity() {
 
         findViewById<TextView>(R.id.tv_shared_data).apply {
             setText(Feature1Activity::class.java.toString())
+            setOnClickListener {
+                startActivity(Intent(this@Feature1Activity, Feature1AdditionalActivity::class.java))
+            }
         }
 
-        Log.d("ALESHA", "dataProvider ${dataProvider} ${dataProvider.provideToken()}")
-        Log.d("ALESHA", "someRepository ${someRepository.getSomeData()}")
-        Log.d("ALESHA", "someSingletone ${someSingletone.getSomeSingletoneData()}")
-        Log.d("ALESHAVM", "viewModel ${viewModel}")
+        Log.d("ALESHA", "Feature1Activity dataProvider ${dataProvider} ${dataProvider.provideToken()}")
+        Log.d("ALESHA", "Feature1Activity someRepository ${someRepository.getSomeData()}")
+        Log.d("ALESHA", "Feature1Activity someSingletone ${someSingletone.getSomeSingletoneData()}")
+        Log.d("ALESHAVM", "Feature1Activity viewModel ${viewModel}")
+        Log.d("ALESHAVM", "Feature1Activity DFeature1ComponentProvider ${DFeature1ComponentProvider}")
     }
 
     override fun onInject() {
-        viewModel.dFeatureComponent?.inject(this)
+        DFeature1ComponentProvider.dFeatureComponent?.inject(this)
             ?: kotlin.run {
                 DaggerDFeatureComponent.factory()
                     .create(appComponent(), DFeatureModule(), application).also { component ->
-                        viewModel.dFeatureComponent = component
+                        DFeature1ComponentProvider.dFeatureComponent = component
                     }.inject(this@Feature1Activity)
             }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (isFinishing) {
+            DFeature1ComponentProvider.dFeatureComponent = null
+        }
     }
 }

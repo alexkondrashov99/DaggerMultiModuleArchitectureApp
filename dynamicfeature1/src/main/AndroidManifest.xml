@@ -14,6 +14,9 @@
 
     <application>
         <activity
+            android:name=".Feature1AdditionalActivity"
+            android:exported="false" />
+        <activity
             android:name=".Feature1Activity"
             android:exported="false" />
     </application>
