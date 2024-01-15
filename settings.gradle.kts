@@ -17,3 +17,4 @@ rootProject.name = "DynamicFeatureApp"
 include(":app")
 include(":dynamicfeature1")
 include(":dynamicfeature2")
+include(":Core")
