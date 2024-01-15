@@ -11,7 +11,7 @@ import dagger.android.support.AndroidSupportInjectionModule
 @DFeatureScope
 @Component(
     dependencies = [AppComponent::class],
-    modules = [AndroidSupportInjectionModule::class, DFeatureModule::class])
+    modules = [DFeatureModule::class])
 interface DFeatureComponent {
 
     @Component.Factory

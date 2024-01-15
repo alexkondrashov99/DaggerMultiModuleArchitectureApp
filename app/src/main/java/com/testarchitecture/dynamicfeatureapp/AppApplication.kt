@@ -23,7 +23,7 @@ class AppApplication : Application(), AppComponentProvider {
         Log.d(TAG, "onCreate() called")
 
 
-        DaggerAppComponent.builder().application(this).build().also {
+        DaggerAppComponent.factory().create(this).also {
             appComponent = it
         }.inject(this)
 
