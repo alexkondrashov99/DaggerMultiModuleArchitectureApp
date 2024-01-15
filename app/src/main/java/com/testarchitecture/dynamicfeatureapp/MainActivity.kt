@@ -1,13 +1,15 @@
 package com.testarchitecture.dynamicfeatureapp
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import com.testarchitecture.core.DaggerAndroidActivity
+import com.testarchitecture.core.SomeDataProvider
+import com.testarchitecture.core.coreComponent
+import com.testarchitecture.dynamicfeatureapp.di.AppModule
 import com.testarchitecture.dynamicfeatureapp.di.DaggerAppComponent
 import com.testarchitecture.dynamicfeatureapp.dynamicfeature.DynamicFeatureModule
-import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
 class MainActivity : DaggerAndroidActivity() {
@@ -38,6 +40,7 @@ class MainActivity : DaggerAndroidActivity() {
     }
 
     override fun onInject() {
-        appComponent().inject(this@MainActivity)
+        DaggerAppComponent.factory()
+            .create(coreComponent(), AppModule(), application).inject(this@MainActivity)
     }
 }

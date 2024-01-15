@@ -1,15 +1,14 @@
 package com.testarchitecture.dynamicfeature1
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.testarchitecture.dynamicfeature1.data.interfaces.DFeature1Repository
 import com.testarchitecture.dynamicfeature1.data.interfaces.DFeature1Singletone
 import com.testarchitecture.dynamicfeature1.di.DFeatureModule
 import com.testarchitecture.dynamicfeature1.di.DaggerDFeatureComponent
-import com.testarchitecture.dynamicfeatureapp.DaggerAndroidActivity
-import com.testarchitecture.dynamicfeatureapp.SomeDataProvider
-import com.testarchitecture.dynamicfeatureapp.appComponent
+import com.testarchitecture.core.DaggerAndroidActivity
+import com.testarchitecture.core.SomeDataProvider
+import com.testarchitecture.core.coreComponent
 import javax.inject.Inject
 
 class Feature1AdditionalActivity : DaggerAndroidActivity() {
@@ -37,7 +36,7 @@ class Feature1AdditionalActivity : DaggerAndroidActivity() {
         DFeature1ComponentProvider.dFeatureComponent?.inject(this)
             ?: kotlin.run {
                 DaggerDFeatureComponent.factory()
-                    .create(appComponent(), DFeatureModule(), application).also { component ->
+                    .create(coreComponent(), DFeatureModule(), application).also { component ->
                         DFeature1ComponentProvider.dFeatureComponent = component
                     }.inject(this@Feature1AdditionalActivity)
             }

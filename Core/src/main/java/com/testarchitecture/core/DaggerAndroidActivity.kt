@@ -1,4 +1,4 @@
-package com.testarchitecture.dynamicfeatureapp
+package com.testarchitecture.core
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

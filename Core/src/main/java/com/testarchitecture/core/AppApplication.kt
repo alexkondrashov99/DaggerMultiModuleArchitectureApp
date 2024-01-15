@@ -1,4 +1,4 @@
-package com.testarchitecture.dynamicfeatureapp
+package com.testarchitecture.core
 
 import android.app.Activity
 import android.app.Application
@@ -6,16 +6,14 @@ import android.app.Service
 import android.content.Context
 import android.content.ContextWrapper
 import android.util.Log
-import com.testarchitecture.dynamicfeatureapp.di.AppComponent
-import com.testarchitecture.dynamicfeatureapp.di.DaggerAppComponent
-import dagger.android.AndroidInjector
-import dagger.android.support.DaggerApplication
+import com.testarchitecture.core.di.CoreComponent
+import com.testarchitecture.core.di.DaggerCoreComponent
 
 class AppApplication : Application(), AppComponentProvider {
 
-    lateinit var appComponent: AppComponent
+    lateinit var coreComponent: CoreComponent
 
-    override fun provideAppComponent() = appComponent
+    override fun provideCoreComponent() = coreComponent
 
     override fun onCreate() {
 
@@ -23,8 +21,8 @@ class AppApplication : Application(), AppComponentProvider {
         Log.d(TAG, "onCreate() called")
 
 
-        DaggerAppComponent.factory().create(this).also {
-            appComponent = it
+        DaggerCoreComponent.factory().create(this).also {
+            coreComponent = it
         }.inject(this)
 
         instance = this
@@ -54,8 +52,8 @@ class AppApplication : Application(), AppComponentProvider {
 
 
 interface AppComponentProvider {
-    fun provideAppComponent(): AppComponent
+    fun provideCoreComponent(): CoreComponent
 }
 
-fun Activity.appComponent() = (applicationContext as? AppComponentProvider)?.provideAppComponent()
+fun Activity.coreComponent() = (applicationContext as? AppComponentProvider)?.provideCoreComponent()
     ?: throw IllegalStateException("CoreComponentProvider not implemented: $applicationContext")

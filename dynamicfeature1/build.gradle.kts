@@ -50,6 +50,7 @@ android {
 
 dependencies {
     implementation(project(":app"))
+    implementation(project(":Core"))
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
