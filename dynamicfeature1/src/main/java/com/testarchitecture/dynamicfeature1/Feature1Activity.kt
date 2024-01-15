@@ -4,17 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.testarchitecture.dynamicfeature1.data.interfaces.DFeature1Repository
 import com.testarchitecture.dynamicfeature1.data.interfaces.DFeature1Singletone
 import com.testarchitecture.dynamicfeature1.di.DFeatureModule
 import com.testarchitecture.dynamicfeature1.di.DaggerDFeatureComponent
-import com.testarchitecture.dynamicfeatureapp.AppApplication
 import com.testarchitecture.dynamicfeatureapp.DaggerAndroidActivity
 import com.testarchitecture.dynamicfeatureapp.SomeDataProvider
 import com.testarchitecture.dynamicfeatureapp.appComponent
-import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
 class Feature1Activity : DaggerAndroidActivity() {
