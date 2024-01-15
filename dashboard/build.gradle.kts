@@ -1,23 +1,27 @@
 plugins {
-    id("com.android.application")
-    id("kotlin-android")
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
 }
 
 android {
-    namespace = "com.testarchitecture.dynamicfeatureapp"
-    compileSdk = 34
+    namespace = "com.testarchitecture.dashboard"
+    compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.testarchitecture.dynamicfeatureapp"
         minSdk = 21
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 
     buildTypes {
         getByName("debug") {
@@ -36,17 +40,7 @@ android {
             )
         }
     }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-    dynamicFeatures += setOf(":dynamicfeature1", ":dynamicfeature2")
     flavorDimensions += listOf("platform")
-
     productFlavors {
         create("google") {
             dimension = "platform"
@@ -58,9 +52,7 @@ android {
 }
 
 dependencies {
-    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar", "*.aar"))))
     implementation(project(":Core"))
-    implementation(project(":dashboard"))
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
@@ -70,10 +62,6 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     implementation("com.google.android.play:core:1.3.4")
-
-    /*************************
-     *
-     */
 
     implementation ("com.google.dagger:dagger:2.50")
     kapt ("com.google.dagger:dagger-compiler:2.50")

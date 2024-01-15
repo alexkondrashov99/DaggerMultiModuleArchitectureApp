@@ -2,7 +2,6 @@ package com.testarchitecture.dynamicfeatureapp.di
 
 import android.app.Application
 import com.testarchitecture.core.di.CoreComponent
-import com.testarchitecture.dynamicfeatureapp.MainActivity
 import dagger.BindsInstance
 import dagger.Component
 
@@ -20,7 +19,4 @@ interface AppComponent {
                    appModule: AppModule,
                    @BindsInstance application: Application): AppComponent
     }
-
-    fun inject(activity: MainActivity)
-
 }

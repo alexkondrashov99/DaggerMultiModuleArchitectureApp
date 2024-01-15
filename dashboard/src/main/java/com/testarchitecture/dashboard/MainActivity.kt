@@ -1,4 +1,4 @@
-package com.testarchitecture.dynamicfeatureapp
+package com.testarchitecture.dashboard
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,9 +7,9 @@ import android.widget.Button
 import com.testarchitecture.core.DaggerAndroidActivity
 import com.testarchitecture.core.SomeDataProvider
 import com.testarchitecture.core.coreComponent
-import com.testarchitecture.dynamicfeatureapp.di.AppModule
-import com.testarchitecture.dynamicfeatureapp.di.DaggerAppComponent
-import com.testarchitecture.dynamicfeatureapp.dynamicfeature.DynamicFeatureModule
+import com.testarchitecture.dashboard.di.DaggerDashboardComponent
+import com.testarchitecture.dashboard.di.DashboardModule
+import com.testarchitecture.dashboard.dynamicfeature.DynamicFeatureModule
 import javax.inject.Inject
 
 class MainActivity : DaggerAndroidActivity() {
@@ -40,7 +40,7 @@ class MainActivity : DaggerAndroidActivity() {
     }
 
     override fun onInject() {
-        DaggerAppComponent.factory()
-            .create(coreComponent(), AppModule(), application).inject(this@MainActivity)
+        DaggerDashboardComponent.factory()
+            .create(coreComponent(), DashboardModule(), application).inject(this@MainActivity)
     }
 }

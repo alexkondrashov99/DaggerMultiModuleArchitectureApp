@@ -1,4 +1,4 @@
-package com.testarchitecture.dynamicfeatureapp.dynamicfeature
+package com.testarchitecture.dashboard.dynamicfeature
 
 import com.google.android.play.core.splitinstall.SplitInstallManager
 import com.google.android.play.core.splitinstall.SplitInstallManagerFactory
