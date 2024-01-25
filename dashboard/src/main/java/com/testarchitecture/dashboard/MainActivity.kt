@@ -7,16 +7,22 @@ import android.widget.Button
 import com.testarchitecture.core.DaggerAndroidActivity
 import com.testarchitecture.core.SomeDataProvider
 import com.testarchitecture.core.coreComponent
-import com.testarchitecture.dashboard.di.DaggerDashboardComponent
 import com.testarchitecture.dashboard.di.DashboardModule
 import com.testarchitecture.dashboard.dynamicfeature.DynamicFeatureModule
+import dagger.android.AndroidInjection
+import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
-class MainActivity : DaggerAndroidActivity() {
+class MainActivity : DaggerAppCompatActivity() {
 
 
     @Inject
     lateinit var dataProvider: SomeDataProvider
+
+
+    @Inject
+    lateinit var someString: String
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,10 +43,12 @@ class MainActivity : DaggerAndroidActivity() {
         }
 
         Log.d("ALESHA", "dataProvider ${dataProvider} ${dataProvider.provideToken()}")
+        Log.d("ALESHA", "someString ${someString}")
     }
-
-    override fun onInject() {
-        DaggerDashboardComponent.factory()
-            .create(coreComponent(), DashboardModule(), application).inject(this@MainActivity)
-    }
+//
+//    override fun onInject() {
+//        AndroidInjection.inject(this)
+////        DaggerDashboardComponent.factory()
+////            .create(coreComponent(), DashboardModule(), application).inject(this@MainActivity)
+//    }
 }

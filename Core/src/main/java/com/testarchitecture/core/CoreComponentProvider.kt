@@ -4,9 +4,9 @@ import android.app.Activity
 import com.testarchitecture.core.di.CoreComponent
 
 
-interface AppComponentProvider {
+interface CoreComponentProvider {
     fun provideCoreComponent(): CoreComponent
 }
 
-fun Activity.coreComponent() = (applicationContext as? AppComponentProvider)?.provideCoreComponent()
+fun Activity.coreComponent() = (applicationContext as? CoreComponentProvider)?.provideCoreComponent()
     ?: throw IllegalStateException("CoreComponentProvider not implemented: $applicationContext")
