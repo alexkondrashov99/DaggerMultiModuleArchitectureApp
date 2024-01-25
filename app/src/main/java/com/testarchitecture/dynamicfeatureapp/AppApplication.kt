@@ -1,4 +1,4 @@
-package com.testarchitecture.core
+package com.testarchitecture.dynamicfeatureapp
 
 import android.app.Activity
 import android.app.Application
@@ -6,6 +6,7 @@ import android.app.Service
 import android.content.Context
 import android.content.ContextWrapper
 import android.util.Log
+import com.testarchitecture.core.AppComponentProvider
 import com.testarchitecture.core.di.CoreComponent
 import com.testarchitecture.core.di.DaggerCoreComponent
 
@@ -49,11 +50,3 @@ class AppApplication : Application(), AppComponentProvider {
         }
     }
 }
-
-
-interface AppComponentProvider {
-    fun provideCoreComponent(): CoreComponent
-}
-
-fun Activity.coreComponent() = (applicationContext as? AppComponentProvider)?.provideCoreComponent()
-    ?: throw IllegalStateException("CoreComponentProvider not implemented: $applicationContext")
