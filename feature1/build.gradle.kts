@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.testarchitecture.dashboard"
+    namespace = "com.testarchitecture.feature1"
     compileSdk = 33
 
     defaultConfig {
@@ -53,7 +53,6 @@ android {
 
 dependencies {
     implementation(project(":Core"))
-    implementation(project(":feature1"))
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")

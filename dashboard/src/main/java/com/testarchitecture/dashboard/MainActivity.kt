@@ -9,6 +9,7 @@ import com.testarchitecture.core.SomeDataProvider
 import com.testarchitecture.core.coreComponent
 import com.testarchitecture.dashboard.di.DashboardModule
 import com.testarchitecture.dashboard.dynamicfeature.DynamicFeatureModule
+import com.testarchitecture.feature1.Feature1Activity
 import dagger.android.AndroidInjection
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
@@ -29,9 +30,7 @@ class MainActivity : DaggerAppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<Button>(R.id.bt_feature_1).setOnClickListener {
-            val intent = Intent().apply {
-                setClassName(this@MainActivity, DynamicFeatureModule.Feature1.entryPoint)
-            }
+            val intent = Intent(this, Feature1Activity::class.java)
             startActivity(intent)
         }
 
