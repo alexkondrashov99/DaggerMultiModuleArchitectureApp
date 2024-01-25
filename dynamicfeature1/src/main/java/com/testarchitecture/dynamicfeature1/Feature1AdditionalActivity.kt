@@ -3,7 +3,6 @@ package com.testarchitecture.dynamicfeature1
 import android.os.Bundle
 import android.util.Log
 import com.testarchitecture.dynamicfeature1.data.interfaces.DFeature1Repository
-import com.testarchitecture.dynamicfeature1.data.interfaces.DFeature1Singletone
 import com.testarchitecture.dynamicfeature1.di.DFeatureModule
 import com.testarchitecture.dynamicfeature1.di.DaggerDFeatureComponent
 import com.testarchitecture.core.DaggerAndroidActivity
@@ -19,26 +18,16 @@ class Feature1AdditionalActivity : DaggerAndroidActivity() {
     @Inject
     lateinit var someRepository: DFeature1Repository
 
-    @Inject
-    lateinit var someSingletone: DFeature1Singletone
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feature1_additional)
 
-
         Log.d("ALESHA", "Feature1AdditionalActivity dataProvider ${dataProvider} ${dataProvider.provideToken()}")
         Log.d("ALESHA", "Feature1AdditionalActivity someRepository ${someRepository.getSomeData()}")
-        Log.d("ALESHA", "Feature1AdditionalActivity someSingletone ${someSingletone.getSomeSingletoneData()}")
     }
 
     override fun onInject() {
-        DFeature1ComponentProvider.dFeatureComponent?.inject(this)
-            ?: kotlin.run {
-                DaggerDFeatureComponent.factory()
-                    .create(coreComponent(), DFeatureModule(), application).also { component ->
-                        DFeature1ComponentProvider.dFeatureComponent = component
-                    }.inject(this@Feature1AdditionalActivity)
-            }
+        DaggerDFeatureComponent.factory()
+            .create(coreComponent(), DFeatureModule(), application).inject(this@Feature1AdditionalActivity)
     }
 }

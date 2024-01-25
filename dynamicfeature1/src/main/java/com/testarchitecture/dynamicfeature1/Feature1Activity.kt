@@ -6,7 +6,6 @@ import android.util.Log
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.testarchitecture.dynamicfeature1.data.interfaces.DFeature1Repository
-import com.testarchitecture.dynamicfeature1.data.interfaces.DFeature1Singletone
 import com.testarchitecture.dynamicfeature1.di.DFeatureModule
 import com.testarchitecture.dynamicfeature1.di.DaggerDFeatureComponent
 import com.testarchitecture.core.DaggerAndroidActivity
@@ -20,9 +19,6 @@ class Feature1Activity : DaggerAndroidActivity() {
 
     @Inject
     lateinit var someRepository: DFeature1Repository
-
-    @Inject
-    lateinit var someSingletone: DFeature1Singletone
 
     val viewModel by lazy {
         ViewModelProvider(this).get(DFeatureViewModel::class.java)
@@ -41,25 +37,13 @@ class Feature1Activity : DaggerAndroidActivity() {
 
         Log.d("ALESHA", "Feature1Activity dataProvider ${dataProvider} ${dataProvider.provideToken()}")
         Log.d("ALESHA", "Feature1Activity someRepository ${someRepository.getSomeData()}")
-        Log.d("ALESHA", "Feature1Activity someSingletone ${someSingletone.getSomeSingletoneData()}")
         Log.d("ALESHAVM", "Feature1Activity viewModel ${viewModel}")
-        Log.d("ALESHAVM", "Feature1Activity DFeature1ComponentProvider ${DFeature1ComponentProvider}")
     }
 
     override fun onInject() {
-        DFeature1ComponentProvider.dFeatureComponent?.inject(this)
-            ?: kotlin.run {
-                DaggerDFeatureComponent.factory()
-                    .create(coreComponent(), DFeatureModule(), application).also { component ->
-                        DFeature1ComponentProvider.dFeatureComponent = component
-                    }.inject(this@Feature1Activity)
-            }
+        DaggerDFeatureComponent.factory()
+            .create(coreComponent(), DFeatureModule(), application).inject(this@Feature1Activity)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        if (isFinishing) {
-            DFeature1ComponentProvider.dFeatureComponent = null
-        }
-    }
+
 }
