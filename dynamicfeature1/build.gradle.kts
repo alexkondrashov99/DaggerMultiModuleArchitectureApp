@@ -3,12 +3,18 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
 }
+
+kapt {
+    correctErrorTypes = true
+}
+
+
 android {
     namespace = "com.testarchitecture.dynamicfeature1"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
-        minSdk = 24
+        minSdk = 21
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -51,6 +57,9 @@ android {
 dependencies {
     implementation(project(":app"))
     implementation(project(":Core"))
+    implementation(project(":feature1:impl"))
+    implementation(project(":feature1:api"))
+
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
@@ -58,7 +67,6 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation("androidx.annotation:annotation:1.7.1")
 
 
     implementation ("com.google.dagger:dagger:2.50")

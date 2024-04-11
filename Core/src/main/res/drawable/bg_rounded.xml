@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle"> <!-- Використовуємо прямокутник як базову форму -->
+
+    <solid android:color="#FFFFFF"/> <!-- Задаємо колір фону -->
+
+    <!-- Задаємо радіус закруглення для кутів -->
+    <corners android:radius="16dp"/>
+
+    <!-- Якщо потрібно, можна додати межу -->
+    <!-- <stroke android:width="2dp" android:color="#FF0000"/> -->
+</shape>

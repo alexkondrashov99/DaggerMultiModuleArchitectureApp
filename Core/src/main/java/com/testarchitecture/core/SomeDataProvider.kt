@@ -1,5 +1,9 @@
 package com.testarchitecture.core
 
+import kotlinx.coroutines.flow.Flow
+
 interface SomeDataProvider {
-    fun provideToken(): String
+    fun getToken(): String
+    fun setToken(token: String)
+    fun observeToken(): Flow<String>
 }

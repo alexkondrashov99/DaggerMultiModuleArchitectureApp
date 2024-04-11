@@ -3,10 +3,12 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
 }
-
+kapt {
+    correctErrorTypes = true
+}
 android {
     namespace = "com.testarchitecture.core"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 21

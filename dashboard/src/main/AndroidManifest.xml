@@ -3,7 +3,7 @@
 
     <application>
         <activity
-            android:name=".MainActivity"
+            android:name=".DashboardActivity"
             android:exported="true" />
     </application>
 

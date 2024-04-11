@@ -1,6 +1,7 @@
 package com.testarchitecture.core.di
 
 import android.app.Application
+import com.testarchitecture.core.SomeDataProvider
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -18,6 +19,9 @@ interface CoreComponent {
 
     fun inject(application: Application)
 
-    fun someDataProvider(): com.testarchitecture.core.SomeDataProvider
 
+    /**
+     * Below we have to declare all instances we need to share between modules
+     */
+    fun someDataProvider(): SomeDataProvider
 }

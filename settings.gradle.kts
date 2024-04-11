@@ -16,7 +16,10 @@ dependencyResolutionManagement {
 rootProject.name = "DynamicFeatureApp"
 include(":app")
 include(":dynamicfeature1")
-include(":dynamicfeature2")
 include(":Core")
 include(":dashboard")
-include(":feature1")
+include(":feature1:presentation")
+include(":feature1:impl")
+include(":feature1:api")
+include(":feature1:domain")
+include(":feature1:data")

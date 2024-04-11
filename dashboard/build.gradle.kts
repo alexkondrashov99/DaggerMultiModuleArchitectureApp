@@ -3,10 +3,12 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
 }
-
+kapt {
+    correctErrorTypes = true
+}
 android {
     namespace = "com.testarchitecture.dashboard"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 21
@@ -53,7 +55,8 @@ android {
 
 dependencies {
     implementation(project(":Core"))
-    implementation(project(":feature1"))
+    implementation(project(":feature1:api"))
+
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
