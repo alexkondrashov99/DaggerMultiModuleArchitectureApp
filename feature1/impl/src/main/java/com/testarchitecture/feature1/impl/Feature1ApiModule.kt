@@ -8,7 +8,7 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 
 @Module
-abstract class Feature1DaggerModule {
+abstract class Feature1ApiModule {
 //    @Provides
 //    fun provideFeature1Navigation(): Feature1Navigation = Feature1NavigationImpl()
 //

@@ -58,6 +58,7 @@ android {
 dependencies {
     implementation(project(":Core"))
     implementation(project(":feature1:domain"))
+    implementation(project(":feature2:api"))
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

@@ -81,9 +81,16 @@ dependencies {
 
     implementation(project(":Core"))
     implementation(project(":dashboard"))
+
     implementation(project(":feature1:api"))
     implementation(project(":feature1:presentation"))
     implementation(project(":feature1:impl"))
     implementation(project(":feature1:data"))
     implementation(project(":feature1:domain"))
+
+    implementation(project(":feature2:api"))
+    implementation(project(":feature2:presentation"))
+    implementation(project(":feature2:impl"))
+    implementation(project(":feature2:data"))
+    implementation(project(":feature2:domain"))
 }
