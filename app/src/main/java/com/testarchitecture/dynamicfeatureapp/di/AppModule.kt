@@ -1,8 +1,12 @@
 package com.testarchitecture.dynamicfeatureapp.di
 
+import com.testarchitecture.dynamicfeatureapp.dynamicfeature.DynamicFeatureNavigationImpl
+import com.testarchitecture.mylibrary.DynamicFeatureNavigation
+import dagger.Binds
 import dagger.Module
 
 @Module
-class AppModule {
-
+abstract class AppModule {
+    @Binds
+    abstract fun bindDynamicFeatureNavigation(navigationImpl: DynamicFeatureNavigationImpl): DynamicFeatureNavigation
 }

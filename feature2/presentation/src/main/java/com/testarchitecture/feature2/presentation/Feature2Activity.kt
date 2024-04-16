@@ -8,7 +8,6 @@ import androidx.lifecycle.lifecycleScope
 import com.testarchitecture.core.SomeDataProvider
 import com.testarchitecture.core.Utils
 import com.testarchitecture.feature1.api.Feature1Navigation
-import com.testarchitecture.feature1.api.Feature1NavigationFactory
 import com.testarchitecture.feature2.domain.data.Feature2Repository
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.coroutines.flow.launchIn
@@ -45,20 +44,16 @@ class Feature2Activity : DaggerAppCompatActivity() {
     }
 
     @Inject
-    lateinit var feature1NavFactory: Feature1NavigationFactory
-
-    private var feature1Navigation: Feature1Navigation? = null
+    lateinit var feature1Navigation: Feature1Navigation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feature2)
 
-        feature1Navigation = feature1NavFactory.create(this@Feature2Activity)
-
         observeToken()
 
         btFeature1.setOnClickListener {
-            feature1Navigation?.navigateFeature1()
+            feature1Navigation.navigateFeature1(this@Feature2Activity)
         }
 
         tvActivity.apply {
@@ -84,10 +79,5 @@ class Feature2Activity : DaggerAppCompatActivity() {
         dataProvider.observeToken().onEach { token ->
             tvSharedData.text = token
         }.launchIn(lifecycleScope)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        feature1Navigation = null
     }
 }

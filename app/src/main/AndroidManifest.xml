@@ -17,15 +17,15 @@
 
 <!--        Activity from Dashboard module as Launch activity-->
 
-<!--        <activity-->
-<!--            android:name="com.testarchitecture.dashboard.MainActivity"-->
-<!--            android:exported="true">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+        <activity
+            android:name="com.testarchitecture.dashboard.DashboardActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="LegacyDashboardActivity"
             android:exported="true">

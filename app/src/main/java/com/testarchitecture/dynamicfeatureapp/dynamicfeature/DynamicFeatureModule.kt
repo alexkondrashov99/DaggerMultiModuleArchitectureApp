@@ -1,4 +1,4 @@
-package com.testarchitecture.dashboard.dynamicfeature
+package com.testarchitecture.dynamicfeatureapp.dynamicfeature
 
 sealed class DynamicFeatureModule(
     val name: String,

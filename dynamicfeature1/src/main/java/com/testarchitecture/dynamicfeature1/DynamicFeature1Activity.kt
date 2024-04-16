@@ -12,7 +12,6 @@ import com.testarchitecture.dynamicfeature1.data.interfaces.DFeature1Repository
 import com.testarchitecture.dynamicfeature1.di.DFeatureModule
 import com.testarchitecture.dynamicfeature1.di.DaggerDFeatureComponent
 import com.testarchitecture.feature1.api.Feature1Navigation
-import com.testarchitecture.feature1.api.Feature1NavigationFactory
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import java.util.UUID
@@ -27,8 +26,6 @@ class DynamicFeature1Activity : DaggerAndroidActivity() {
     lateinit var someRepository: DFeature1Repository
 
     @Inject
-    lateinit var feature1NavFactory: Feature1NavigationFactory
-
     lateinit var feature1Navigation: Feature1Navigation
 
     private val btFeature1
@@ -54,8 +51,6 @@ class DynamicFeature1Activity : DaggerAndroidActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feature1)
 
-        feature1Navigation = feature1NavFactory.create(this@DynamicFeature1Activity)
-
         tvActivity.apply {
             setOnClickListener {
                 Utils.showPopup(tvActivity, this@DynamicFeature1Activity.javaClass.name)
@@ -75,10 +70,7 @@ class DynamicFeature1Activity : DaggerAndroidActivity() {
         }
 
         btFeature1.setOnClickListener {
-            feature1Navigation.navigateFeature1()
-//            startActivity(
-//                Intent(this, Feature1Activity::class.java)
-//            )
+            feature1Navigation.navigateFeature1(this@DynamicFeature1Activity)
         }
 
         observeToken()

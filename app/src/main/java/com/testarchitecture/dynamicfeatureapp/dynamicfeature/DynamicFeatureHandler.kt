@@ -1,4 +1,4 @@
-package com.testarchitecture.dashboard.dynamicfeature
+package com.testarchitecture.dynamicfeatureapp.dynamicfeature
 
 import android.content.Context
 

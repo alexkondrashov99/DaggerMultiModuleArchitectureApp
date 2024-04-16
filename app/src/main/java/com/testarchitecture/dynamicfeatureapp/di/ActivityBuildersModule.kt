@@ -18,7 +18,7 @@ abstract class ActivityBuildersModule {
     @ContributesAndroidInjector(modules = [])
     abstract fun legacyDashboardActivity(): LegacyDashboardActivity
 
-    @ContributesAndroidInjector(modules = [DashboardModule::class, Feature1ApiModule::class])
+    @ContributesAndroidInjector(modules = [DashboardModule::class, Feature1ApiModule::class, Feature2ApiModule::class, AppModule::class])
     abstract fun dashboardActivity(): DashboardActivity
 
     @ContributesAndroidInjector(modules = [Feature1Module::class, Feature2ApiModule::class, AppModule::class])

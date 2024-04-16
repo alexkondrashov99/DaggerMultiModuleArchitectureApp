@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import com.testarchitecture.core.SomeDataProvider
 import com.testarchitecture.core.Utils
-import com.testarchitecture.dashboard.dynamicfeature.DynamicFeatureModule
+import com.testarchitecture.dynamicfeatureapp.dynamicfeature.DynamicFeatureModule
 import com.testarchitecture.feature1.presentation.Feature1Activity
 import com.testarchitecture.feature2.presentation.Feature2Activity
 import dagger.android.support.DaggerAppCompatActivity

@@ -81,6 +81,7 @@ dependencies {
 
     implementation(project(":Core"))
     implementation(project(":dashboard"))
+    implementation(project(":dynamicFeatureNavigation"))
 
     implementation(project(":feature1:api"))
     implementation(project(":feature1:presentation"))
