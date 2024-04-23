@@ -1,6 +1,6 @@
-# Project Title
+# DaggerArchitectureApp
 
-DaggerArchitectureApp
+
 
 ## Description
 
