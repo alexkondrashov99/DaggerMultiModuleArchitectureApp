@@ -4,7 +4,7 @@
 
 ## Description
 
-It's a simple project to demonstrate the example of how we can come up with the architecture of Android project using Dagger Android Injection and Android Dynamic Feature
+It's a simple project to demonstrate the example of how we can come up with the multi-module architecture of Android project using Dagger Android Injection and Android Dynamic Feature
 
 ### Dependencies/Features
 
