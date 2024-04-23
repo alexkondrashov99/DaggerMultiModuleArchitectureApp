@@ -1,4 +1,4 @@
-# DaggerArchitectureApp
+# Dagger multi-module architecture app
 
 
 
