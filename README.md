@@ -4,7 +4,7 @@ DaggerArchitectureApp
 
 ## Description
 
-It's a simple project to demonstrate the example of how we can come up with the architecture of Android project using Dagger Android Injection
+It's a simple project to demonstrate the example of how we can come up with the architecture of Android project using Dagger Android Injection and Android Dynamic Feature
 
 ### Dependencies/Features
 
