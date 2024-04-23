@@ -19,6 +19,9 @@
 
         <activity
             android:name="com.testarchitecture.dashboard.DashboardActivity"
+            android:icon="@mipmap/ic_launcher_new"
+            android:label="@string/app_name_new"
+            android:roundIcon="@mipmap/ic_launcher_new_round"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,6 +31,9 @@
         </activity>
         <activity
             android:name="LegacyDashboardActivity"
+            android:icon="@mipmap/ic_launcher_legacy"
+            android:label="@string/app_name_legacy"
+            android:roundIcon="@mipmap/ic_launcher_legacy_round"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

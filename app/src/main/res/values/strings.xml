@@ -1,4 +1,6 @@
 <resources>
-    <string name="app_name">DynamicFeatureApp</string>
+    <string name="app_name">Legacy App</string>
+    <string name="app_name_new">New Arch</string>
+    <string name="app_name_legacy">Legacy Arch</string>
     <string name="title_dynamicfeature1">DynamicFeature1</string>
 </resources>
