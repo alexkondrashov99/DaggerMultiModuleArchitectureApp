@@ -11,6 +11,7 @@ import com.testarchitecture.dynamicfeatureapp.dynamicfeature.DynamicFeatureModul
 import com.testarchitecture.feature1.presentation.Feature1Activity
 import com.testarchitecture.feature2.presentation.Feature2Activity
 import dagger.android.support.DaggerAppCompatActivity
+import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import java.util.UUID
