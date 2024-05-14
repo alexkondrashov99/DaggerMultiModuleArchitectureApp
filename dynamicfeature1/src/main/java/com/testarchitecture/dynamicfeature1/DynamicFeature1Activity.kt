@@ -1,10 +1,12 @@
 package com.testarchitecture.dynamicfeature1
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.google.android.play.core.splitcompat.SplitCompat
 import com.testarchitecture.core.DaggerAndroidActivity
 import com.testarchitecture.core.Utils
 import com.testarchitecture.core.coreComponent
@@ -47,9 +49,14 @@ class DynamicFeature1Activity : DaggerAndroidActivity() {
         ViewModelProvider(this).get(DFeatureViewModel::class.java)
     }
 
+    override fun attachBaseContext(newBase: Context?) {
+        super.attachBaseContext(newBase)
+        SplitCompat.installActivity(this)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_feature1)
+        setContentView(R.layout.activity_d_feature1)
 
         tvActivity.apply {
             setOnClickListener {

@@ -6,6 +6,7 @@ import android.app.Service
 import android.content.Context
 import android.content.ContextWrapper
 import android.util.Log
+import com.google.android.play.core.splitcompat.SplitCompat
 import com.testarchitecture.core.CoreComponentProvider
 import com.testarchitecture.core.di.CoreComponent
 import com.testarchitecture.core.di.DaggerCoreComponent
@@ -27,6 +28,11 @@ class AppApplication : CoreComponentProvider, DaggerApplication()  {
             .application(this)
             .coreComponent(provideCoreComponent())
             .build()
+    }
+
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base)
+        SplitCompat.install(this)
     }
 
     override fun provideCoreComponent(): CoreComponent {
