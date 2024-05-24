@@ -13,9 +13,6 @@
         android:theme="@style/Theme.DynamicFeatureApp"
         tools:targetApi="31">
 
-
-<!--        Activity from Dashboard module as Launch activity-->
-
         <activity
             android:name="com.testarchitecture.dashboard.DashboardActivity"
             android:icon="@mipmap/ic_launcher_new"
@@ -28,6 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name="LegacyDashboardActivity"
             android:icon="@mipmap/ic_launcher_legacy"

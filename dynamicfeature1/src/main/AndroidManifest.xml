@@ -6,7 +6,7 @@
         dist:instant="false"
         dist:title="@string/title_dynamicfeature1">
         <dist:delivery>
-            <dist:install-time />
+            <dist:on-demand/>
         </dist:delivery>
 
         <dist:fusing dist:include="true" />
@@ -14,7 +14,7 @@
 
     <application>
         <activity
-            android:name=".DynamicFeature1Activity"
+            android:name="com.testarchitecture.dynamicfeature1.DynamicFeature1Activity"
             android:exported="false" />
     </application>
 

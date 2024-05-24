@@ -33,7 +33,7 @@ android {
         }
 
         getByName("release") {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -71,6 +71,7 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("com.google.android.play:feature-delivery-ktx:2.1.0")
+    implementation("com.google.android.play:feature-delivery:2.1.0")
     /*************************
      *
      */
@@ -81,7 +82,6 @@ dependencies {
 
     implementation(project(":Core"))
     implementation(project(":dashboard"))
-    implementation(project(":dynamicFeatureNavigation"))
 
     implementation(project(":feature1:api"))
     implementation(project(":feature1:presentation"))
