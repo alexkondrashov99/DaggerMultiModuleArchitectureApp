@@ -28,7 +28,9 @@ android {
 
     buildTypes {
         getByName("debug") {
-
+            proguardFiles(
+                "proguard-rules.pro"
+            )
         }
 
         create("beta") {
@@ -36,9 +38,7 @@ android {
         }
 
         getByName("release") {
-            isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
         }

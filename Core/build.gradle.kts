@@ -35,7 +35,7 @@ android {
         }
 
         getByName("release") {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -61,7 +61,8 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-
+    implementation("com.google.android.play:feature-delivery-ktx:2.1.0")
+    implementation("com.google.android.play:feature-delivery:2.1.0")
 
     implementation ("com.google.dagger:dagger:2.50")
     kapt ("com.google.dagger:dagger-compiler:2.50")
