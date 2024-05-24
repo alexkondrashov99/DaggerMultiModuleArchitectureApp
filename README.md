@@ -35,7 +35,7 @@ java -jar "D:\bundletool\bundletool-all-1.16.0.jar" install-apks --apks test.apk
 OR 
 build universal.apk with next command:
 ```
-java -jar "D:\bundletool\bundletool-all-1.16.0.jar" build-apks --bundle="D:\bundletool\test.aab" --output="D:\bundletool\universal.apks" --mode="universal"
+java -jar "D:\bundletool\bundletool-all-1.16.0.jar" build-apks --local-testing --bundle="D:\bundletool\test.aab" --output="D:\bundletool\universal.apks" --mode="universal"
 ```
 and then open unversal.apks as ZIP-archive. There will be "universal.apk" file you can install on any device. 
 
